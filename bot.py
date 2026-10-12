@@ -6,11 +6,11 @@ import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-SYMBOLS = [s.strip().upper().replace("USDT", "_USDT") for s in os.getenv("MEXC_SYMBOLS", "ETH_USDT,BTC_USDT").split(",") if s.strip()]
+SYMBOLS = [s.strip().upper().replace("USDT", "_USDT") for s in os.getenv("MEXC_SYMBOLS", "SUIUSDT").split(",") if s.strip()]
 POLL_SECONDS = max(5, int(os.getenv("POLL_SECONDS", "10")))
 TEST_MODE = os.getenv("TEST_MODE", "false").strip().lower() in ("1", "true", "yes", "on")
-TOKEN = os.getenv("8858234987:AAGpTkm4hvCcilH_pRQQDxLekIdqz6IbtrY", "").strip()
-CHAT_IDS = [x.strip() for x in os.getenv("-5577693331", "").split(",") if x.strip()]
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+CHAT_IDS = [x.strip() for x in os.getenv("TELEGRAM_CHAT_ID", "").split(",") if x.strip()]
 STATE_DIR = os.getenv("STATE_DIR", "state")
 API_URL = "https://contract.mexc.com/api/v1/contract/kline/{symbol}"
 logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO").upper(), format="%(asctime)s | %(levelname)s | %(message)s")
